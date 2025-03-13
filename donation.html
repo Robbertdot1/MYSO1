@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Donate to Our Cause</title>
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body Styling */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4; /* Light grey background */
+      color: #333;
+      display: grid;
+      place-items: center;
+      height: 100vh;
+      overflow-x: hidden;
+    }
+
+    
+       /* Header Styling */
+header {
+    background: #f6fcf8;
+    padding: 1em 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    position: fixed; /* Keeps navbar at the top */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Ensures navbar is above other content */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Adjust body padding to prevent content from being hidden under the fixed navbar */
+body {
+    padding-top: 70px; /* Adjust according to your header height */
+}
+
+/* Header Content */
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* Logo Styling */
+.logo img {
+    height: 50px;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover img {
+    transform: scale(1.1);
+}
+
+/* Navbar Styling */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5em;
+    margin: 0;
+}
+
+nav ul li a {
+    padding: 0.5em;
+    text-decoration: none;
+    color: #0f0e0e;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #d9f2d9;
+}
+
+/* Mobile Navigation */
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    /* Align logo to the right */
+    .header-content {
+        justify-content: flex-end;
+    }
+
+    /* Position the hamburger menu on the left */
+    .menu-toggle {
+        position: absolute;
+        left: 10px;
+        top: 15px;
+        display: block;
+    }
+
+    /* Hidden navbar by default */
+    nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: #ffffff;
+        position: absolute;
+        top: 70px;
+        width: 100%;
+        left: 0;
+        padding: 1em 0;
+        border-top: 1px solid #ddd;
+    }
+
+    nav ul li {
+        text-align: center;
+        margin: 0.5em 0;
+    }
+
+    /* Show navbar when menu is active */
+    nav.active ul {
+        display: flex;
+    }
+}
+
+/* Donation Container Styling */
+    .donation-container {
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 30px;
+      max-width: 600px;
+      width: 100%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      display: grid;
+      gap: 20px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    h2 {
+      color: #2c683a;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .donation-container p {
+      color: #555;
+      font-size: 16px;
+    }
+
+    /* Form Inputs */
+    .form-field input, .form-field select {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    /* Amount Selection Buttons */
+    .amount-buttons {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+      gap: 10px;
+    }
+
+    .amount-buttons button {
+      background-color: #2c683a;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .amount-buttons button:hover {
+      transform: scale(1.05);
+      background-color: #205d2d;
+    }
+
+    /* Donate Button */
+    .donate-button {
+      background-color: #2c683a;
+      color: white;
+      padding: 15px;
+      font-size: 18px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color 0.3s ease;
+    }
+
+    .donate-button:hover {
+      background-color: #2c683a;
+    }
+
+    /* Payment Options */
+    .payment-options {
+      margin-top: 10px;
+      font-size: 16px;
+    }
+
+    .payment-options button {
+      background-color: #3e3e3c;
+      color: #fafbfc;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color 0.3s ease;
+    }
+
+    .payment-options button:hover {
+      background-color: #e0a800;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Responsive Layout */
+    @media (max-width: 768px) {
+      .donation-container {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+   <!-- Navigation -->
+   <header>
+    <div class="header-content">
+        <!-- Logo -->
+        <a href="index.html" class="logo">
+            <img src="logo.png" alt="Organization Logo" />
+        </a>
+        <!-- Hamburger Menu Toggle -->
+        <div class="menu-toggle" onclick="toggleMenu()" jutify="left">☰</div>
+
+        <!-- Navbar Links -->
+        <nav id="navbar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="donation.html">Donation</a></li>
+                <li><a href="news.html">Updates</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+  <div class="donation-container">
+    <h2>Support Our Social Mission</h2>
+    <p>Your generosity makes a real difference. Thank you for your support!</p>
+
+    <!-- User Information -->
+    <div class="form-field">
+      <label for="name">Name</label>
+      <input type="text" id="name" placeholder="Enter your name">
+    </div>
+    <div class="form-field">
+      <label for="cnic">CNIC</label>
+      <input type="text" id="cnic" placeholder="Enter your CNIC number">
+    </div>
+
+    <!-- Preset Donation Amounts -->
+    <div class="amount-buttons">
+      <button onclick="setAmount(10)">Rs10</button>
+      <button onclick="setAmount(50)">Rs50</button>
+      <button onclick="setAmount(100)">Rs100</button>
+      <button onclick="setAmount(500)">Rs500</button>
+      <button onclick="setAmount(1000)">Rs1000</button>
+    </div>
+
+    <!-- Custom Donation Amount -->
+    <div class="form-field">
+      <label for="customAmount">Donation Amount</label>
+      <input type="number" id="customAmount" placeholder="Enter amount in Rs">
+    </div>
+
+    <!-- Donate Button -->
+    <button class="donate-button" onclick="donate()">Donate</button>
+
+    <!-- Payment Options -->
+    <div class="payment-options">
+      <h3>Alternate Payment Methods</h3>
+      <div>
+        <button onclick="showDetails('Easypaisa')">Donate via Easypaisa</button>
+        <p id="easypaisa-details" style="display: none;">Send to Easypaisa: 0345-1234567</p>
+      </div>
+      <div>
+        <button onclick="showDetails('JazzCash')">Donate via JazzCash</button>
+        <p id="jazzcash-details" style="display: none;">Send to JazzCash: 0300-7654321</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    
+    let donationAmount = 0;
+
+    // Function to set the selected amount in the input field
+    function setAmount(amount) {
+      donationAmount = amount;
+      document.getElementById("customAmount").value = amount;
+    }
+
+    // Function to process donation
+    function donate() {
+      const name = document.getElementById("name").value;
+      const cnic = document.getElementById("cnic").value;
+      const customAmount = document.getElementById("customAmount").value;
+
+      donationAmount = customAmount ? customAmount : donationAmount;
+
+      if (!name || !cnic || donationAmount <= 0) {
+        alert("Please enter all details and a valid donation amount.");
+        return;
+      }
+
+      alert(`Thank you, ${name}, for donating ₹${donationAmount}!`);
+      // Payment gateway integration here
+    }
+
+    // Function to toggle Easypaisa and JazzCash details
+    function showDetails(method) {
+      document.getElementById("easypaisa-details").style.display = (method === 'Easypaisa') ? 'block' : 'none';
+      document.getElementById("jazzcash-details").style.display = (method === 'JazzCash') ? 'block' : 'none';
+    }
+
+    // Function to toggle the navigation menu for mobile view
+    function toggleMenu() {
+      document.getElementById('navbar').classList.toggle('active');
+    }
+  </script>
+</body>
+</html>

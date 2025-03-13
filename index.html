@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Organization</title>
+    <style>
+ /* Reset and Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Arial", sans-serif;
+}
+
+/* Body and Background */
+body, html {
+    height: 100%;
+    background: linear-gradient(to bottom, #a0d6b4, #e0f2e9, #ffffff);
+    color: #0a0a0a;
+    overflow-x: hidden;
+}
+/* Header Styling */
+header {
+    background: #f6fcf8;
+    padding: 1em 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    position: fixed; /* Keeps navbar at the top */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Ensures navbar is above other content */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Adjust body padding to prevent content from being hidden under the fixed navbar */
+body {
+    padding-top: 70px; /* Adjust according to your header height */
+}
+
+/* Header Content */
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* Logo Styling */
+.logo img {
+    height: 50px;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover img {
+    transform: scale(1.1);
+}
+
+/* Navbar Styling */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5em;
+    margin: 0;
+}
+
+nav ul li a {
+    padding: 0.5em;
+    text-decoration: none;
+    color: #0f0e0e;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #d9f2d9;
+}
+
+/* Mobile Navigation */
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    /* Align logo to the right */
+    .header-content {
+        justify-content: flex-end;
+    }
+
+    /* Position the hamburger menu on the left */
+    .menu-toggle {
+        position: absolute;
+        left: 10px;
+        top: 15px;
+        display: block;
+    }
+
+    /* Hidden navbar by default */
+    nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: #ffffff;
+        position: absolute;
+        top: 70px;
+        width: 100%;
+        left: 0;
+        padding: 1em 0;
+        border-top: 1px solid #ddd;
+    }
+
+    nav ul li {
+        text-align: center;
+        margin: 0.5em 0;
+    }
+
+    /* Show navbar when menu is active */
+    nav.active ul {
+        display: flex;
+    }
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 4em 2em;
+    color: #ffffff;
+    background: #2c683a;
+}
+
+.hero h1 {
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 1.5em;
+}
+
+/* Buttons */
+.buttons {
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+}
+
+.feedback-button, .volunteer-button {
+    text-decoration: none;
+    color: #ffffff;
+    padding: 1em 2em;
+    border-radius: 30px;
+    background-color: #3c9d5b;
+    transition: background-color 0.3s ease;
+}
+
+.feedback-button:hover, .volunteer-button:hover {
+    background-color: #2c683a;
+}
+
+/* Mission Section */
+.mission {
+    text-align: center;
+    padding: 2em;
+}
+
+.mission h2 {
+    font-size: 2em;
+    color: #2c683a;
+}
+
+.mission p, .scroll-content p {
+    font-size: 1.2em;
+    color: #333;
+    margin: 10px 0;
+}
+
+/* Grid Section */
+.grid-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5em;
+    padding: 2em;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.grid-item {
+    background: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s;
+}
+
+.grid-item:hover {
+    transform: scale(1.05);
+}
+
+.grid-image img {
+    width: 100%;
+    height: auto;
+    border-bottom: 2px solid #2c683a;
+}
+
+.grid-content {
+    padding: 1.5em;
+    color: #333;
+}
+
+.grid-content h3 {
+    color: #2c683a;
+    font-size: 1.5em;
+}
+
+.grid-content p {
+    font-size: 1em;
+    margin: 0.5em 0;
+}
+
+/* Responsive Adjustments */
+@media (min-width: 768px) {
+    .grid-section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .grid-section {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <div class="header-content">
+            <!-- Logo -->
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="Organization Logo" />
+            </a>
+            <!-- Hamburger Menu Toggle -->
+            <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+            <!-- Navbar Links -->
+            <nav id="navbar">
+                
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="donation.html">Donation</a></li>
+                    <li><a href="news.html">Updates</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <section class="hero">
+            <h1>Welcome to Our Malir Youth Social Organization</h1>
+            <p>Making a difference in communities worldwide.</p>
+            <div class="buttons">
+                <a href="https://forms.gle/PXPU4sww3K2DWjtB9" class="feedback-button" aria-label="Go to feedback form page" target="blank">Feedback</a>
+                <a href="https://forms.gle/3AAogLLaEJ5RzWBM9" class="volunteer-button" aria-label="Go to volunteer apply form page" target="blank">Apply as a Volunteer</a>
+            </div>
+        </section>
+
+        <!-- Mission Section -->
+        <section class="mission">
+            <h2>Our Mission</h2>
+            <p>Our mission is to create a positive impact in communities through various projects and initiatives.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum.</p>
+        </section>
+
+        <!-- Projects Grid Section -->
+        <section class="grid-section">
+            <div class="grid-item">
+                <div class="grid-image">
+                    <img src="project1.jpeg" alt="Community Project Image 1">
+                </div>
+                <div class="grid-content">
+                    <h3>Education for All</h3>
+                    <p>Providing accessible education resources to underprivileged communities.</p>
+                </div>
+            </div>
+            <div class="grid-item">
+                <div class="grid-image">
+                    <img src="project2.jpeg" alt="Community Project Image 2">
+                </div>
+                <div class="grid-content">
+                    <h3>Clean Water Initiative</h3>
+                    <p>Ensuring clean drinking water through sustainable solutions.</p>
+                </div>
+            </div>
+            <div class="grid-item">
+                <div class="grid-image">
+                    <img src="project3.jpeg" alt="Community Project Image 3">
+                </div>
+                <div class="grid-content">
+                    <h3>Healthcare Support</h3>
+                    <p>Improving community health with medical outreach programs.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('navbar').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Malir Youth Social Organization Heat Stroke Relief Camp</title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Global Styling */
+        html, body {
+            width: 100%;
+            overflow-x: hidden;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #d9f2d9, #ffffff);
+        }
+   /* Header Styling */
+header {
+    background: #f6fcf8;
+    padding: 1em 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    position: fixed; /* Keeps navbar at the top */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Ensures navbar is above other content */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Adjust body padding to prevent content from being hidden under the fixed navbar */
+body {
+    padding-top: 70px; /* Adjust according to your header height */
+}
+
+/* Header Content */
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* Logo Styling */
+.logo img {
+    height: 50px;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover img {
+    transform: scale(1.1);
+}
+
+/* Navbar Styling */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5em;
+    margin: 0;
+}
+
+nav ul li a {
+    padding: 0.5em;
+    text-decoration: none;
+    color: #0f0e0e;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #d9f2d9;
+}
+
+/* Mobile Navigation */
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    /* Align logo to the right */
+    .header-content {
+        justify-content: flex-end;
+    }
+
+    /* Position the hamburger menu on the left */
+    .menu-toggle {
+        position: absolute;
+        left: 10px;
+        top: 15px;
+        display: block;
+    }
+
+    /* Hidden navbar by default */
+    nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: #ffffff;
+        position: absolute;
+        top: 70px;
+        width: 100%;
+        left: 0;
+        padding: 1em 0;
+        border-top: 1px solid #ddd;
+    }
+
+    nav ul li {
+        text-align: center;
+        margin: 0.5em 0;
+    }
+
+    /* Show navbar when menu is active */
+    nav.active ul {
+        display: flex;
+    }
+}
+
+
+        /* Blog Section */
+        .blog-container {
+            max-width: 800px;
+            margin: 2em auto;
+            padding: 2em;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .blog-header {
+            text-align: center;
+            color: #2c683a;
+            margin-bottom: 1em;
+        }
+
+        .blog-header h1 {
+            font-size: 2em;
+            margin-bottom: 0.5em;
+        }
+
+        .blog-header p {
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        .blog-content img {
+            width: 100%;
+            border-radius: 5px;
+            margin: 1em 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-content p {
+            font-size: 1em;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 1em;
+        }
+
+        .blog-content h3 {
+            color: #2c683a;
+            margin-top: 1em;
+        }
+
+        /* Read More Button */
+        .back-button {
+            display: inline-block;
+            padding: 0.5em 1em;
+            background-color: #2c683a;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            text-align: center;
+            margin-top: 2em;
+        }
+
+        .back-button:hover {
+            background-color: #1e4b27;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo" aria-label="Home">
+                <img src="logo.png" alt="Organization Logo" />
+            </a>
+
+            <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+            <nav id="navbar">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="donation.html">Donation</a></li>
+                    <li><a href="news.html">Updates</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="blog-container">
+        <div class="blog-header">
+            <h1>Malir Youth Social Organization Heat Stroke Relief Camp</h1>
+            <p>Learn about the efforts of Malir Youth Social Organization to provide relief and support to the community during extreme heat conditions.</p>
+        </div>
+
+        <div class="blog-content">
+            <img src="project2.png" alt="Heat Stroke Relief Camp Image">
+            <p>The Malir Youth Social Organization (MYSO) recently organized a heat stroke relief camp to support the community during a period of extreme heat. Volunteers, including Bilal Khan, came together to serve juice and provide relief to those affected by the intense weather conditions. This camp provided hydration and care to many people, offering much-needed support during difficult times.</p>
+            
+            <h3>About the Relief Camp</h3>
+            <p>Organized in response to the community's needs, the heat stroke relief camp aimed to prevent heat-related illnesses by providing cool drinks and shaded rest areas. MYSO volunteers worked tirelessly to ensure the success of the camp and bring comfort to those in need.</p>
+
+            <h3>Community Impact</h3>
+            <p>The relief camp received a great response from the community. Many locals expressed gratitude for the assistance, and the efforts of MYSO have strengthened their connection with the people. This initiative also raised awareness of the dangers of heat strokes and the importance of staying hydrated and cool during extreme temperatures.</p>
+
+            <h3>Looking Ahead</h3>
+            <p>Encouraged by the success of this event, MYSO plans to continue its efforts in supporting the community. They are committed to organizing more events and providing aid during times of need, reinforcing their mission of community service and support.</p>
+        </div>
+
+        <a href="projects.html" class="back-button">← Back to Projects</a>
+    </section>
+
+    <script>
+        function toggleMenu() {
+            const navbar = document.getElementById('navbar');
+            navbar.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

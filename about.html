@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Social Organization</title>
+    <style>
+ /* Reset and Global Styles */
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Arial", sans-serif;
+}
+
+/* Body and Background */
+body, html {
+    height: 100%;
+    background: linear-gradient(to bottom, #a0d6b4, #e0f2e9, #ffffff);
+    color: #0a0a0a;
+    overflow-x: hidden;
+}
+
+ /* Header Styling */
+header {
+    background: #f6fcf8;
+    padding: 1em 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    position: fixed; /* Keeps navbar at the top */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Ensures navbar is above other content */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Adjust body padding to prevent content from being hidden under the fixed navbar */
+body {
+    padding-top: 70px; /* Adjust according to your header height */
+}
+
+/* Header Content */
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* Logo Styling */
+.logo img {
+    height: 50px;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover img {
+    transform: scale(1.1);
+}
+
+/* Navbar Styling */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5em;
+    margin: 0;
+}
+
+nav ul li a {
+    padding: 0.5em;
+    text-decoration: none;
+    color: #0f0e0e;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #d9f2d9;
+}
+
+/* Mobile Navigation */
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    /* Align logo to the right */
+    .header-content {
+        justify-content: flex-end;
+    }
+
+    /* Position the hamburger menu on the left */
+    .menu-toggle {
+        position: absolute;
+        left: 10px;
+        top: 15px;
+        display: block;
+    }
+
+    /* Hidden navbar by default */
+    nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: #ffffff;
+        position: absolute;
+        top: 70px;
+        width: 100%;
+        left: 0;
+        padding: 1em 0;
+        border-top: 1px solid #ddd;
+    }
+
+    nav ul li {
+        text-align: center;
+        margin: 0.5em 0;
+    }
+
+    /* Show navbar when menu is active */
+    nav.active ul {
+        display: flex;
+    }
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 6em 2.5em;
+    background: #2c683a;
+    color: #fff;
+    border-radius: 12px;
+}
+
+/* Mission & Vision Section */
+.mission-vision {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5em;
+    padding: 3em;
+}
+
+.mission, .vision {
+    background: #2c683a;
+    color: #fff;
+    padding: 2.5em;
+    border-radius: 12px;
+    text-align: center;
+}
+
+/* Team Section */
+.team {
+    text-align: center;
+    padding: 5em 3em;
+}
+
+.team h2 {
+    font-size: 2.8em;
+    margin-bottom: 1.5em;
+    color: #2c683a;
+}
+
+.team-members {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 2.5em;
+}
+
+.team-member {
+    background: #ffffff;
+    padding: 2.5em;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-12px);
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.team-member h3 {
+    font-size: 1.7em;
+    color: #2c683a;
+}
+
+/* Values Section */
+.values {
+    padding: 5em 3em;
+    text-align: center;
+    background: #f9f9f9;
+}
+
+.values h2 {
+    font-size: 2.8em;
+    margin-bottom: 1.5em;
+    color: #2c683a;
+}
+
+.values-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 2.5em;
+}
+
+.value-item {
+    background: #ffffff;
+    padding: 2.5em;
+    border-radius: 12px;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.value-item:hover {
+    transform: translateY(-12px);
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.value-item h3 {
+    font-size: 1.7em;
+    color: #2c683a;
+}
+</style>
+</head>
+<body>
+    <!-- Background Overlay -->
+    <div class="background-overlay">
+        <!-- Navigation -->
+    <header>
+        <div class="header-content">
+            <!-- Logo -->
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="Organization Logo" />
+            </a>
+            <!-- Hamburger Menu Toggle -->
+            <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+            <!-- Navbar Links -->
+            <nav id="navbar">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="donation.html">Donation</a></li>
+                    <li><a href="news.html">Updates</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>About Us</h1>
+            <p>We are committed to creating positive change in communities around the world.</p>
+        </section>
+
+        <!-- Mission and Vision Section -->
+        <section class="mission-vision">
+            <div class="mission">
+                <h2>Our Mission</h2>
+                <p>To empower communities and drive impactful change through sustainable initiatives.</p>
+            </div>
+            <div class="vision">
+                <h2>Our Vision</h2>
+                <p>A world where every community thrives through equal opportunities and sustainable growth.</p>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section class="team">
+            <h2>Meet Our Team</h2>
+            <div class="team-members">
+                <div class="team-member">
+                    <a href="https://www.instagram.com/bilal3302/?hl=en" target="_blank" style="text-decoration: none; color: inherit;">
+                        <h3>Bilal Khan</h3>
+                    </a>
+                    <p>Chairman of Youth</p>
+                </div>
+                
+                <div class="team-member">
+                    <h3>member 2</h3>
+                    <p>Community Outreach</p>
+                </div>
+                <div class="team-member">
+                    <h3>member 3</h3>
+                    <p>Volunteer Coordinator</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Values Section -->
+        <section class="values">
+            <h2>Our Core Values</h2>
+            <div class="values-list">
+                <div class="value-item">
+                    <h3>Integrity</h3>
+                    <p>We uphold honesty and strong moral principles in everything we do.</p>
+                </div>
+                <div class="value-item">
+                    <h3>Empathy</h3>
+                    <p>We show compassion and understanding for others in our community.</p>
+                </div>
+                <div class="value-item">
+                    <h3>Commitment</h3>
+                    <p>We are dedicated to making a lasting impact in the community.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Toggle menu function for mobile
+        function toggleMenu() {
+            document.querySelector('nav').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
